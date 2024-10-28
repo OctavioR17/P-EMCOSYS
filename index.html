@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación ESP32</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Simulación de Circuito ESP32</h1>
+    </header>
+
+    <main>
+        <section id="control-panel">
+            <h2>Control de Pantalla y LEDs</h2>
+            <button id="btn-on">Encender Pantalla (Pulsador 1)</button>
+            <button id="btn-off">Apagar Pantalla (Pulsador 2)</button>
+
+            <div id="screen-status">
+                <p><strong>Pantalla TFT:</strong> <span id="screen-state">Apagada</span></p>
+            </div>
+
+            <div id="leds">
+                <p><strong>LED 1:</strong> <span id="led1">Apagado</span></p>
+                <p><strong>LED 2:</strong> <span id="led2">Apagado</span></p>
+                <p><strong>LED 3:</strong> <span id="led3">Apagado</span></p>
+            </div>
+
+            <div id="buzzer">
+                <p><strong>Buzzer:</strong> <span id="buzzer-state">Silencio</span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Simulación de Circuito ESP32</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
