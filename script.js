@@ -1,3 +1,6 @@
+//P-EMCOSYS
+//INTEGRANTES: Luis Feregrino, Octavio Rodriguez e Isaac Misael
+
 document.getElementById('btn-on').addEventListener('click', () => {
     // Encender Pantalla TFT
     document.getElementById('screen-state').textContent = 'Encendida';
