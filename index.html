@@ -31,6 +31,23 @@
                 <p><strong>Buzzer:</strong> <span id="buzzer-state">Silencio</span></p>
             </div>
         </section>
+
+        <section id="tft-screen">
+            <h2>Pantalla TFT</h2>
+            <div id="tft-display">
+                <p id="tft-message">Pantalla apagada</p>
+                <img id="tft-image" style="display: none;" src="" alt="Imagen en TFT" />
+            </div>
+        </section>
+
+        <section id="input-section">
+            <h2>Actualizar Mensaje/Imagen en TFT</h2>
+            <textarea id="message-input" placeholder="Escribe un mensaje..."></textarea>
+            <button id="send-message">Enviar Mensaje</button>
+
+            <input type="file" id="image-input" accept="image/*">
+            <button id="send-image">Enviar Imagen</button>
+        </section>
     </main>
 
     <footer>
