@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Simulación de Circuito ESP32</h1>
+        <h1>P-EMCOSYS</h1>
     </header>
 
     <main>
@@ -48,12 +48,37 @@
             <input type="file" id="image-input" accept="image/*">
             <button id="send-image">Enviar Imagen</button>
         </section>
+
+        <!-- Nuevo apartado para registrar y visualizar correos -->
+        <section id="email-section">
+            <h2>Registro de Correos Electrónicos</h2>
+            <input type="email" id="email-input" placeholder="Ingresa tu correo electrónico">
+            <button id="register-email">Registrar Correo</button>
+        
+            <div id="email-list">
+                <h3>Lista de Correos Registrados</h3>
+                <ul id="emails"></ul>
+            </div>
+        </section>
+
+        <!-- Apartado para enviar correos y ver la fecha y hora -->
+        <section id="send-email-section">
+            <h2>Enviar Correo Electrónico</h2>
+            <button id="send-email">Enviar Correo</button>
+            <p id="email-timestamp">Último envío: <span id="timestamp">N/A</span></p>
+
+        <!-- Historial de envíos de correos -->
+        <!-- <div id="email-history">
+            <h3>Historial de Envíos</h3>
+            <ul id="email-history-list"></ul>
+        </div> -->
     </main>
 
     <footer>
-        <p>&copy; 2024 Simulación de Circuito ESP32</p>
+        <p>&copy; 2024 P-EMCOSYS</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="script2.js"></script>
 </body>
 </html>

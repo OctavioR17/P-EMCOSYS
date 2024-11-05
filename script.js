@@ -7,6 +7,7 @@ document.getElementById('btn-on').addEventListener('click', () => {
     startBuzzer();
 
     document.getElementById('tft-message').textContent = 'Pantalla encendida';
+    document.getElementById('tft-image').style.display = 'none';
 });
 
 document.getElementById('btn-off').addEventListener('click', () => {
@@ -40,8 +41,12 @@ function stopBuzzer() {
 
 document.getElementById('send-message').addEventListener('click', () => {
     const message = document.getElementById('message-input').value;
-    document.getElementById('tft-message').textContent = message || 'Mensaje vacío';
-    document.getElementById('tft-image').style.display = 'none';
+    if (message.trim()) {
+        document.getElementById('tft-message').textContent = message;
+        document.getElementById('tft-image').style.display = 'none';
+    } else {
+        document.getElementById('tft-message').textContent = 'Mensaje vacío';
+    }
 });
 
 document.getElementById('send-image').addEventListener('click', () => {
@@ -57,5 +62,49 @@ document.getElementById('send-image').addEventListener('click', () => {
             document.getElementById('tft-message').textContent = '';
         };
         reader.readAsDataURL(imageInput);
+    } else {
+        alert("Por favor selecciona una imagen para mostrar.");
     }
+});
+
+// Registro de correos electrónicos
+const emailList = [];
+
+document.getElementById('register-email').addEventListener('click', () => {
+    const emailInput = document.getElementById('email-input');
+    const email = emailInput.value.trim();
+
+    if (email && !emailList.includes(email)) {
+        emailList.push(email);
+        updateEmailList();
+        emailInput.value = ''; // Limpiar el campo después de agregar el correo
+    } else {
+        alert("Introduce un correo válido o que no esté registrado.");
+    }
+});
+
+function updateEmailList() {
+    const emailUl = document.getElementById('emails');
+    emailUl.innerHTML = '';
+
+    emailList.forEach(email => {
+        const li = document.createElement('li');
+        li.textContent = email;
+        emailUl.appendChild(li);
+    });
+}
+
+// Envío de correo y registro de fecha/hora
+document.getElementById('send-email').addEventListener('click', () => {
+    if (emailList.length === 0) {
+        alert("No hay correos registrados para enviar.");
+        return;
+    }
+
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString();
+    const formattedTime = currentDate.toLocaleTimeString();
+
+    document.getElementById('timestamp').textContent = `${formattedDate} ${formattedTime}`;
+    alert("Correo(s) enviado(s) con éxito.");
 });
