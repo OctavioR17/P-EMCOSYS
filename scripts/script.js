@@ -1,6 +1,44 @@
 //P-EMCOSYS
 //INTEGRANTES: Luis Feregrino, Octavio Rodriguez e Isaac Misael
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Limpiar campos al cargar la página
+    document.getElementById("message-input").value = "";
+    document.getElementById("image-input").value = "";
+
+    // Referencias de los botones y estado de la pantalla
+    const btnOn = document.getElementById("btn-on");
+    const btnOff = document.getElementById("btn-off");
+    const screenState = document.getElementById("screen-state");
+    const sendMessageButton = document.getElementById("send-message");
+    const sendImageButton = document.getElementById("send-image");
+
+    // Función para verificar el estado de la pantalla
+    function updateSendButtons() {
+        const isScreenOn = screenState.textContent === "Encendida";
+        sendMessageButton.disabled = !isScreenOn;
+        sendImageButton.disabled = !isScreenOn;
+    }
+
+    // Actualizar botones al cargar la página
+    updateSendButtons();
+
+    // Escuchar cambios de encendido y apagado de pantalla
+    btnOn.addEventListener("click", function () {
+        screenState.textContent = "Encendida";
+        updateSendButtons();
+    });
+
+    btnOff.addEventListener("click", function () {
+        screenState.textContent = "Apagada";
+        updateSendButtons();
+        // Limpiar mensaje e imagen si se apaga la pantalla
+        document.getElementById("tft-message").textContent = "Pantalla apagada";
+        document.getElementById("tft-image").style.display = "none";
+        document.getElementById("tft-image").src = "";
+    });
+});
+
 document.getElementById('btn-on').addEventListener('click', () => {
     document.getElementById('screen-state').textContent = 'Encendida';
     document.getElementById('led1').textContent = 'Encendido';
@@ -107,4 +145,45 @@ document.getElementById('send-email').addEventListener('click', () => {
 
     document.getElementById('timestamp').textContent = `${formattedDate} ${formattedTime}`;
     alert("Correo(s) enviado(s) con éxito.");
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Elementos de la interfaz
+    const emailHistoryList = document.getElementById("email-history-list");
+    const sendEmailButton = document.getElementById("send-email");
+    const emailInput = document.getElementById("email-input");
+
+    // Historial de envíos (máximo 3)
+    let emailHistory = [];
+
+    // Función para enviar correo (simulado)
+    function sendEmail() {
+        const email = emailInput.value;
+        const recipients = document.querySelectorAll("#emails li").length; // Contar destinatarios registrados
+        const timestamp = new Date().toLocaleString();
+
+        // Guardar en el historial
+        emailHistory.unshift({ timestamp, recipients });
+        if (emailHistory.length > 3) emailHistory.pop(); // Limitar a 3 elementos
+
+        // Actualizar la interfaz con el historial
+        updateEmailHistory();
+
+        // Limpiar el campo de entrada de correo
+        emailInput.value = "";
+    }
+
+    // Función para actualizar la lista de historial en la interfaz
+    function updateEmailHistory() {
+        emailHistoryList.innerHTML = "";
+        emailHistory.forEach(entry => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `Enviado el: ${entry.timestamp} a ${entry.recipients} destinatarios`;
+            emailHistoryList.appendChild(listItem);
+        });
+    }
+
+    // Escuchar el evento de envío de correo
+    sendEmailButton.addEventListener("click", sendEmail);
 });

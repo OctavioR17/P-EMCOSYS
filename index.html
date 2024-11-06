@@ -19,6 +19,7 @@
 
             <div id="screen-status">
                 <p><strong>Pantalla TFT:</strong> <span id="screen-state">Apagada</span></p>
+                <br>
             </div>
 
             <div id="leds">
@@ -28,15 +29,8 @@
             </div>
 
             <div id="buzzer">
+                <br>
                 <p><strong>Buzzer:</strong> <span id="buzzer-state">Silencio</span></p>
-            </div>
-        </section>
-
-        <section id="tft-screen">
-            <h2>Pantalla TFT</h2>
-            <div id="tft-display">
-                <p id="tft-message">Pantalla apagada</p>
-                <img id="tft-image" style="display: none;" src="" alt="Imagen en TFT" />
             </div>
         </section>
 
@@ -47,6 +41,29 @@
 
             <input type="file" id="image-input" accept="image/*">
             <button id="send-image">Enviar Imagen</button>
+        </section>
+
+        <section id="tft-screen">
+            <h2>Pantalla TFT</h2>
+            <div id="tft-display">
+                <p id="tft-message">Pantalla apagada</p>
+                <img id="tft-image" style="display: none;" src="" alt="Imagen en TFT" />
+            </div>
+        </section>
+
+        <!-- Apartado para enviar correos y ver la fecha y hora -->
+        <section id="send-email-section">
+            <h2>Enviar Correo Electrónico</h2>
+            <button id="send-email">Enviar Correo</button>
+            <p id="email-timestamp">Último envío: <span id="timestamp">N/A</span></p>
+        </section>
+
+        <!-- Historial de envíos de correos -->
+        <section id="history-email-section">
+            <div id="email-history">
+            <h3>Historial de Envíos</h3>
+            <ul id="email-history-list"></ul>
+            </div>
         </section>
 
         <!-- Nuevo apartado para registrar y visualizar correos -->
@@ -61,24 +78,14 @@
             </div>
         </section>
 
-        <!-- Apartado para enviar correos y ver la fecha y hora -->
-        <section id="send-email-section">
-            <h2>Enviar Correo Electrónico</h2>
-            <button id="send-email">Enviar Correo</button>
-            <p id="email-timestamp">Último envío: <span id="timestamp">N/A</span></p>
-
-        <!-- Historial de envíos de correos -->
-        <!-- <div id="email-history">
-            <h3>Historial de Envíos</h3>
-            <ul id="email-history-list"></ul>
-        </div> -->
     </main>
 
     <footer>
+        <br>
         <p>&copy; 2024 P-EMCOSYS</p>
     </footer>
 
-    <!-- <script src="script.js"></script> -->
-    <script src="scripts/script2.js"></script>
+    <!-- <script src="scripts/script2.js"></script> -->
+    <script src="scripts/script.js"></script>
 </body>
 </html>
