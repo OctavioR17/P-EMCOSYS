@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailList = [];
     const emailHistory = [];
 
+    let emailMessage = ''
+    let emailImage = null;
+
     // Inicializar campos y botones
     document.getElementById("message-input").value = "";
     document.getElementById("image-input").value = "";
@@ -70,6 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("tft-message").textContent = '';
             };
             reader.readAsDataURL(imageInput);
+
+            emailImage = imageInput;
         } else {
             alert("Por favor selecciona una imagen para mostrar.");
         }
@@ -104,6 +109,17 @@ document.addEventListener("DOMContentLoaded", () => {
         emailHistory.unshift({ timestamp, recipients: emailList.length });
         if (emailHistory.length > 3) emailHistory.pop();
         updateEmailHistory();
+
+        console.log("Email list:");
+        console.log(emailList);
+
+        console.log("Email content:");
+
+        emailMessage = document.getElementById("message-input").value.trim();
+        emailImage = document.getElementById("image-input").files[0];
+
+        console.log(emailMessage);
+        console.log(emailImage);
         alert("Correo(s) enviado(s) con éxito.");
     });
 
