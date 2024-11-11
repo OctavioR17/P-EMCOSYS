@@ -120,7 +120,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(emailMessage);
         console.log(emailImage);
-        alert("Correo(s) enviado(s) con éxito.");
+
+        const formData = new FormData();
+        formData.append('address', emailList);
+        formData.append('message', emailMessage);
+        if (emailImage) {
+            formData.append('image', emailImage);
+        }
+
+        const resut = fetch('http://localhost:1117/sendemail', {
+            method: 'POST',
+            body: formData,
+        }).then(response => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error('Failed to send email');
+            }
+        })
+        .then(data => {
+            console.log('Success:', data);
+            alert("Correo(s) enviado(s) con éxito.");
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert("Error al enviar correo(s).");
+        });
     });
 
     function updateEmailHistory() {
