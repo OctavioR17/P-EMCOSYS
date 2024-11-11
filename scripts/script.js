@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailList = [];
     const emailHistory = [];
 
+    let emailMessage = ''
+    let emailImage = null;
+
     // Inicializar campos y botones
     document.getElementById("message-input").value = "";
     document.getElementById("image-input").value = "";
@@ -70,6 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("tft-message").textContent = '';
             };
             reader.readAsDataURL(imageInput);
+
+            emailImage = imageInput;
         } else {
             alert("Por favor selecciona una imagen para mostrar.");
         }
@@ -104,7 +109,43 @@ document.addEventListener("DOMContentLoaded", () => {
         emailHistory.unshift({ timestamp, recipients: emailList.length });
         if (emailHistory.length > 3) emailHistory.pop();
         updateEmailHistory();
-        alert("Correo(s) enviado(s) con éxito.");
+
+        console.log("Email list:");
+        console.log(emailList);
+
+        console.log("Email content:");
+
+        emailMessage = document.getElementById("message-input").value.trim();
+        emailImage = document.getElementById("image-input").files[0];
+
+        console.log(emailMessage);
+        console.log(emailImage);
+
+        const formData = new FormData();
+        formData.append('address', emailList);
+        formData.append('message', emailMessage);
+        if (emailImage) {
+            formData.append('image', emailImage);
+        }
+
+        const resut = fetch('http://localhost:1117/sendemail', {
+            method: 'POST',
+            body: formData,
+        }).then(response => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error('Failed to send email');
+            }
+        })
+        .then(data => {
+            console.log('Success:', data);
+            alert("Correo(s) enviado(s) con éxito.");
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert("Error al enviar correo(s).");
+        });
     });
 
     function updateEmailHistory() {
