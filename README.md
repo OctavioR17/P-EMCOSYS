@@ -39,3 +39,12 @@ Para poder hacer un uso correcto del apartado de correos electrónicos, accede a
 
 ## Imagen alusiva para la conexión de componentes en el ESP32:
 (insertar imagen)
+
+
+
+## Contribuciones
+Las contribuciones son bienvenidas. Abre un issue o envía un pull request para sugerencias, correcciones o mejoras.
+
+De antemano gracias.
+Todos los derechos reservados. 
+2024.
