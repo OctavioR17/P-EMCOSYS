@@ -22,6 +22,9 @@ const header = `
 const client = new EmailClient(connectionString);
 
 export async function send(address, message, imageBase64, imageMimeType) {
+    // Convertimos 'address' a un array si es una cadena de texto con múltiples correos separados por comas
+    const emailAddresses = typeof address === 'string' ? address.split(',').map(email => email.trim()) : address;
+    
     const emailMessage = {
         senderAddress,
         content: {
@@ -35,7 +38,7 @@ export async function send(address, message, imageBase64, imageMimeType) {
 			</html>`,
         },
         recipients: {
-            to: Array.isArray(address) ? address.map(addr => ({ address: addr })) : [{ address }],
+            to: emailAddresses.map(addr => ({ address: addr })), // Convierte cada correo en el formato requerido
         },
         attachments: imageBase64 ? [{
             name: 'image',
