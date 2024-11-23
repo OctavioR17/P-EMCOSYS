@@ -37,10 +37,23 @@ Para poder hacer un uso correcto del apartado de correos electrónicos, accede a
 1. npm install (esto instalará todas las dependencias necesarias)
 2. npm run test (esto ejecutará el servicio y estará listo para usarse)
 
-## Imagen alusiva para la conexión de componentes en el ESP32:
-(insertar imagen)
+## Conexión de componentes en el ESP32:
+led1Amarillo -> pinD17 (resistencia de lado del pin rojo, rojo, cafe, dorado, es la pata larga del led)
+led2Rojo -> pinD16 (resistencia de lado del pin rojo, rojo, cafe, dorado, es la pata larga del led)
+led3Verde -> pinD15 (resistencia de lado del pin rojo, rojo, cafe, dorado, es la pata larga del led)
+buzzer -> pinD33 (resistencia de lado del pin rojo, rojo, cafe, es la pata )
+btn1 -> pinD25
+btn2 -> pinD26
+Todo lo demás a tierra
 
-
+tft:
+1. GND -> Tierra
+2. VCC -> VN/VIN
+3. SCL -> D18
+4. SDA -> D23
+5. RES -> D4
+6. DC -> D2
+7. CS -> D5
 
 ## Contribuciones
 Las contribuciones son bienvenidas. Abre un issue o envía un pull request para sugerencias, correcciones o mejoras.
