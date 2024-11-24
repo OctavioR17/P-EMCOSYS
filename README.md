@@ -44,8 +44,8 @@ Para poder hacer un uso correcto del apartado de correos electrónicos, accede a
 
 ## Conexión de componentes en el ESP32:
 
-<!-- ![Guia Conexion ESP32 Servidor](multimedia/circuitoServidor.jpg "Cricuito Servidor")
-![Guia Conexion ESP32 Cliente](multimedia/circuitoCliente.jpg "Cricuito Cliente") -->
+![Guia Conexion ESP32 Servidor](multimedia/circuitoServidor.jpeg "Cricuito Servidor")
+![Guia Conexion ESP32 Cliente](multimedia/circuitoCliente.jpeg "Cricuito Cliente")
 
 *ESP32 Servidor:*
 1. led1Amarillo -> pinD17 (resistencia de lado del pin rojo, rojo, cafe, dorado, es la pata larga del led)
