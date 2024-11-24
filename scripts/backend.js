@@ -58,11 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //document.getElementById("tft").textContent = isOn ? "Apagada" : "Encendida";
         updateSendButtons();
-        updateled1s();
-        updateled2s();
-        updateled3s();
-        updatebuzzers();
-        updatetfts();
+
+        // Actualizar estados periódicamente
+        setInterval(() => {
+            updateled1s();
+            updateled2s();
+            updateled3s();
+            updatetfts();
+            updatebuzzers();
+        }, 500); // Actualiza cada medido segundo
     }
 
     // --------------------FUNCIONES PARA ACTUALIZAR ESTADO DE LED 1--------------------

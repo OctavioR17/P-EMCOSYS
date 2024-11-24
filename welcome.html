@@ -1,76 +1,27 @@
-<!DOCTYPE html>
+<!-- 
+--------------------------------------------------------------------
+Proyecto Integral: P-EMCOSYS (Potro - EMergency COmmunication SYstem)
+Integrantes del equipo:
+    1. Luis Garcia
+    2. Octavio Rodriguez
+    3. Isaac Vazquez
+ --------------------------------------------------------------------
+Este programa es la página de bienvenida del sistema
+----------------------------------------------------------------------
+ -->
+
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenida</title>
-    <style>
-        /* Variables de color */
-        :root {
-            --primary-bg-color: #4CAF50;
-            --secondary-bg-color: #f4f9f5;
-            --button-hover-color: #45a049;
-            --text-color: #333;
-            --white-color: #fff;
-        }
-
-        /* Reset y estilo base */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--secondary-bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('multimedia/background_welcome.jpeg'); /* Cambia la ruta de la imagen */
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Estilos de contenedor principal */
-        .welcome-container {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            color: var(--primary-bg-color);
-            margin-bottom: 10px;
-        }
-
-        p {
-            margin-bottom: 20px;
-        }
-
-        /* Estilos de botón */
-        button {
-            padding: 10px;
-            background-color: var(--primary-bg-color);
-            color: var(--white-color);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: var(--button-hover-color);
-        }
-    </style>
+    <link rel="stylesheet" href="estilos/styles-welcome.css">
 </head>
 <body>
     <div class="welcome-container">
         <h1>Bienvenido a P-EMCOSYS</h1>
-        <p id="custom-text">P-EMCOSYS, es un sistema de comunicación de emergencias creado por alumnos de la Facultad de Ingenieria de la UAEMex</p> <!-- Puedes cambiar este texto con JavaScript o desde el HTML -->
+        <p id="custom-text">P-EMCOSYS, es un sistema de comunicación de emergencias creado por alumnos de la Facultad de Ingenieria de la UAEMex</p>
         <button onclick="location.href='main.html'">Acceder al sistema</button>
     </div>
 </body>
