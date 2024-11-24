@@ -1,4 +1,5 @@
-# P-EMCOSYS (Potro-Emergency Communication System)
+# P-EMCOSYS 
+## (Potro - Emergency Communication System)
 
 P-EMCOSYS es un proyecto desarrollado para las materias **PIIS** y **PICD** en la Facultad de Ingeniería de la UAEMéx. Este sistema está diseñado para la comunicación en situaciones de emergencia dentro de la facultad.
 
@@ -79,5 +80,6 @@ TFT:
 Las contribuciones son bienvenidas. Abre un issue o envía un pull request para sugerencias, correcciones o mejoras.
 
 De antemano gracias.
-2024.Todos los derechos reservados. 
+Todos los derechos reservados, 2024.
+
 ~ Octavio Daniel Rodríguez González
